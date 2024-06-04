@@ -1,6 +1,31 @@
 Cypress.Commands.add('login', (usuario, senha) => {
     cy.get('#username').type(usuario)
-    cy.get('#password').type(senha, {log: false})
+    cy.get('#password').type(senha)
     cy.get('.woocommerce-form > .button').click()
-});
+})
 
+Cypress.Commands.add('compra', (produto, tamanho, cor, qtd) => {
+    cy.get('.post-3374 > .product-block > .block-inner > .image > .product-image > .image-hover').click()
+    cy.get('.button-variable-item-34').click()
+    cy.get(':nth-child(2) > .value > .variable-items-wrapper > .variable-item').click()
+    cy.get('.input-text').clear().type(4).click()
+    cy.get('.single_add_to_cart_button').click()
+})
+
+Cypress.Commands.add('checkout', (nome, sobrenome, país, endereço, cidade, estado, cep, telefone, email) => {
+    cy.get('#billing_first_name').clear().type('Bruno')
+    cy.get('#billing_last_name').clear().type('rafael')
+    cy.get('#billing_country_field > label').click()
+    cy.get('#select2-billing_country-container').type('Brasil').click()
+    cy.get('#billing_address_1_field > label').click()
+    cy.get('#billing_address_1').clear().type('av.teste123')
+    cy.get('#billing_city_field > label').click()
+    cy.get('#billing_city').clear().type('caieiras')
+    cy.get('#billing_state_field > label').click()
+    cy.get('#select2-billing_state-container').type('São Paulo').click()
+    cy.get('#billing_postcode').clear().type('12345678')
+    cy.get('#billing_phone').clear().type('987654321')
+    cy.get('#billing_email').clear().type('rafael.teste@gmail.com')
+    cy.get('#terms').click()
+    cy.get('#place_order').click()
+})
