@@ -5,9 +5,9 @@ Cypress.Commands.add('login', (usuario, senha) => {
 })
 
 Cypress.Commands.add('compra', (produto, tamanho, cor, qtd) => {
-    cy.get('.post-3374 > .product-block > .block-inner > .image > .product-image > .image-hover').click()
+    cy.get('.post-3073 > .product-block > .block-inner > .image > .product-image > .image-hover').click()
     cy.get('.button-variable-item-34').click()
-    cy.get(':nth-child(2) > .value > .variable-items-wrapper > .variable-item').click()
+    cy.get('.button-variable-item-Brown').click()
     cy.get('.input-text').clear().type(4).click()
     cy.get('.single_add_to_cart_button').click()
 })
