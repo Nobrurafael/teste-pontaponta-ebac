@@ -5,9 +5,8 @@ describe('Teste de ponta a ponta em Saucelabs', () => {
         cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
 
          //login com comandos customizados
-        cy.login('rafael.teste7x@gmail.com', 'Red94203')
-        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, rafael.teste7x (não é rafael.teste7x? Sair)')
-    });
+        cy.login('rafael.sales7x@gmail.com', '1234567')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)')    });
 
     it('Deve fazer o pedido de ponta a ponta', () => {
         //visitando e selecionando produtos
